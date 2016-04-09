@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+void main()
+{
+	int array[10]={3,2,3,1,1,2,3,2,1,2};
+	int temp = array[1];
+	int i=1,j=9;
+	while(i<j)
+	{
+		while(array[j]>array[0]&&(i<j))j--;
+		array[i]=array[j];
+		while(array[i]<=array[0]&&(i<j))i++;
+		array[j]=array[i];
+	}
+	array[i]= temp;
+	while(array[i]>=array[0])
+		i--;
+	j = 1;
+	while(j<i)
+	{
+		if(array[j]==array[0])
+		{
+			array[j]=array[i];
+			array[i--]=array[0];
+		}
+		j++;
+	}
+	for(i=0;i<10;i++)
+		cout<<array[i]<<"\t";     //3 2 2 1 1 2 1 2 3 3
+	cout<<endl;
+	system("pause");
+}
